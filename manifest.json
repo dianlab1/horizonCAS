@@ -2,7 +2,7 @@
     "name": "Horizon Compressed Air Services",
     "short_name": "Horizon",
     "description": "Horizon Compressed Air Services technician and job management app.",
-    "start_url": "./main/main.html",
+    "start_url": "./",
     "scope": "./",
     "display": "standalone",
     "orientation": "portrait",

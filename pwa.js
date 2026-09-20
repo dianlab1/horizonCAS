@@ -6,87 +6,65 @@ if ("serviceWorker" in navigator) {
 
         try {
 
-            const scriptUrl =
-                document.currentScript?.src;
+            const basePath =
+                window.location.pathname.split("/").filter(Boolean)[0];
 
-            const serviceWorkerUrl = scriptUrl
-                ? new URL(
-                    "serviceworker.js",
-                    scriptUrl
-                ).href
-                : new URL(
-                    "/serviceworker.js",
-                    window.location.origin
-                ).href;
+            const serviceWorkerPath =
+                basePath
+                    ? `/${basePath}/serviceworker.js`
+                    : "/serviceworker.js";
+
+            const scope =
+                basePath
+                    ? `/${basePath}/`
+                    : "/";
 
 
             const registration =
                 await navigator.serviceWorker.register(
-                    serviceWorkerUrl,
+                    serviceWorkerPath,
                     {
-                        scope: "/"
+                        scope: scope
                     }
                 );
 
 
-            console.log(
-                "Horizon service worker registered."
-            );
+            console.log("Horizon service worker registered.");
 
 
-            // Check for updates immediately
+            // Check for a new version immediately
             registration.update();
 
 
-            // Check every 15 minutes
+            // Check for updates every 15 minutes
             setInterval(() => {
-
                 registration.update();
-
             }, 15 * 60 * 1000);
 
 
             function promptForUpdate(worker) {
 
-                if (
-                    !worker ||
-                    window.__horizonUpdatePromptShown
-                ) {
+                if (!worker) {
                     return;
                 }
 
-
-                window.__horizonUpdatePromptShown = true;
-
-
                 const updateNow = window.confirm(
-
-                    "A new version of the Horizon app " +
-                    "is available.\n\n" +
+                    "A new version of the Horizon app is available.\n\n" +
                     "Update now?"
-
                 );
-
 
                 if (updateNow) {
 
                     worker.postMessage({
-
                         type: "SKIP_WAITING"
-
                     });
-
-                } else {
-
-                    window.__horizonUpdatePromptShown =
-                        false;
 
                 }
 
             }
 
 
-            // A new version may already be waiting
+            // A new version is already waiting
             if (registration.waiting) {
 
                 promptForUpdate(
@@ -96,14 +74,13 @@ if ("serviceWorker" in navigator) {
             }
 
 
-            // Detect a newly installing service worker
+            // Detect new service worker
             registration.addEventListener(
                 "updatefound",
                 () => {
 
                     const newWorker =
                         registration.installing;
-
 
                     if (!newWorker) {
                         return;
@@ -115,10 +92,8 @@ if ("serviceWorker" in navigator) {
                         () => {
 
                             if (
-                                newWorker.state ===
-                                "installed" &&
-                                navigator.serviceWorker
-                                    .controller
+                                newWorker.state === "installed" &&
+                                navigator.serviceWorker.controller
                             ) {
 
                                 promptForUpdate(
@@ -134,11 +109,7 @@ if ("serviceWorker" in navigator) {
             );
 
 
-            /*
-                Once the new service worker becomes
-                active, reload the page automatically.
-            */
-
+            // Reload after update
             navigator.serviceWorker.addEventListener(
                 "controllerchange",
                 () => {
