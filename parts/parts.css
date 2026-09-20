@@ -1,0 +1,635 @@
+.parts-list,
+.parts-list * {
+    box-sizing: border-box;
+}
+
+.parts-list {
+    background: #e8edf0;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 844px;
+    position: relative;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex: 1;
+    position: relative;
+}
+
+.header {
+    background: #102b37;
+    padding: 18px 20px 14px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.arrow-left {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    position: relative;
+    overflow: visible;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.title {
+    color: #ffffff;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    position: relative;
+    align-self: stretch;
+}
+
+.subtitle {
+    color: #c4d2d8;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    position: relative;
+    align-self: stretch;
+}
+
+.bell {
+    flex-shrink: 0;
+    width: 21px;
+    height: 21px;
+    position: relative;
+    overflow: visible;
+}
+
+.parts-inventory {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex: 1;
+    position: relative;
+}
+
+.search {
+    background: #ffffff;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #d7e0e4;
+    border-width: 1px;
+    padding: 0px 14px 0px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 46px;
+    position: relative;
+    overflow: hidden;
+}
+
+.search2 {
+    flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    position: relative;
+    overflow: visible;
+}
+
+.placeholder {
+    color: #93a0a6;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    position: relative;
+    align-self: stretch;
+}
+
+.sliders-horizontal {
+    flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    position: relative;
+    overflow: visible;
+}
+
+.stock-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.stock-metric {
+    background: #fce9e7;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.value {
+    color: #b53d35;
+    text-align: left;
+    font-family: "Inter-ExtraBold", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    position: relative;
+}
+
+.label {
+    color: #b53d35;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    position: relative;
+}
+
+.stock-metric2 {
+    background: #fff2d8;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.value2 {
+    color: #a9680b;
+    text-align: left;
+    font-family: "Inter-ExtraBold", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    position: relative;
+}
+
+.label2 {
+    color: #a9680b;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    position: relative;
+}
+
+.stock-metric3 {
+    background: #e5f4ed;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.value3 {
+    color: #247254;
+    text-align: left;
+    font-family: "Inter-ExtraBold", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    position: relative;
+}
+
+.label3 {
+    color: #247254;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    position: relative;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    border-style: solid;
+    border-color: #d7e0e4;
+    border-width: 1px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    box-shadow: 0px 3px 12px 0px rgba(16, 43, 55, 0.08);
+    overflow: hidden;
+}
+
+.part-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.icon {
+    background: #fce9e7;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    position: relative;
+    overflow: hidden;
+}
+
+.package {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    overflow: visible;
+}
+
+.part {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.identifier {
+    color: #26708d;
+    text-align: left;
+    font-family: "Inter-ExtraBold", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    position: relative;
+    align-self: stretch;
+}
+
+.name {
+    color: #172126;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    position: relative;
+    align-self: stretch;
+}
+
+.manufacturer {
+    color: #66757d;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    position: relative;
+    align-self: stretch;
+}
+
+.status {
+    background: #fce9e7;
+    border-radius: 999px;
+    padding: 4px 8px 4px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.label4 {
+    color: #b53d35;
+    text-align: left;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.4undefined;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.stock-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.detail {
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.warehouse {
+    flex-shrink: 0;
+    width: 13px;
+    height: 13px;
+    position: relative;
+    overflow: visible;
+}
+
+.value4 {
+    color: #66757d;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    position: relative;
+    flex: 1;
+}
+
+.quantity {
+    color: #b53d35;
+    text-align: left;
+    font-family: "Inter-ExtraBold", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    position: relative;
+}
+
+.context {
+    color: #66757d;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    position: relative;
+}
+
+.icon2 {
+    background: #e5f4ed;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    position: relative;
+    overflow: hidden;
+}
+
+.package2 {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    overflow: visible;
+}
+
+.status2 {
+    background: #e5f4ed;
+    border-radius: 999px;
+    padding: 4px 8px 4px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.label5 {
+    color: #247254;
+    text-align: left;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.4undefined;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.warehouse2 {
+    flex-shrink: 0;
+    width: 13px;
+    height: 13px;
+    position: relative;
+    overflow: visible;
+}
+
+.quantity2 {
+    color: #172126;
+    text-align: left;
+    font-family: "Inter-ExtraBold", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    position: relative;
+}
+
+.icon3 {
+    background: #fff2d8;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    position: relative;
+    overflow: hidden;
+}
+
+.package3 {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    overflow: visible;
+}
+
+.status3 {
+    background: #fff2d8;
+    border-radius: 999px;
+    padding: 4px 8px 4px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.label6 {
+    color: #a9680b;
+    text-align: left;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.4undefined;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.warehouse3 {
+    flex-shrink: 0;
+    width: 13px;
+    height: 13px;
+    position: relative;
+    overflow: visible;
+}
+
+.bottom-navigation {
+    background: #ffffff;
+    border-style: solid;
+    border-color: #d7e0e4;
+    border-width: 1px 0px 0px 0px;
+    padding: 9px 18px 9px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 70px;
+    position: relative;
+}
+
+.navigation-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    width: 64px;
+    position: relative;
+    overflow: hidden;
+}
+
+.home {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    overflow: visible;
+}
+
+.label7 {
+    color: #66757d;
+    text-align: left;
+    font-family: "Inter-Medium", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    position: relative;
+}
+
+.clipboard {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    overflow: visible;
+}
+
+.boxes {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    overflow: visible;
+}
+
+.label8 {
+    color: #26708d;
+    text-align: left;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    position: relative;
+}
+
+.menu {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    overflow: visible;
+}

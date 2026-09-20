@@ -1,0 +1,327 @@
+.employee-login,
+.employee-login * {
+    box-sizing: border-box;
+}
+
+.employee-login {
+    background: #e8edf0;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 844px;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-panel {
+    background: #102b37;
+    padding: 48px 24px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-mark {
+    background: #26708d;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrench {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    overflow: visible;
+}
+
+.brand-name {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.name {
+    color: #ffffff;
+    text-align: left;
+    font-family: "Inter-ExtraBold", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    position: relative;
+}
+
+.descriptor {
+    color: #bfd0d7;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    position: relative;
+}
+
+.greeting {
+    color: #ffffff;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    position: relative;
+}
+
+.instruction {
+    color: #c8d6dc;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 14px;
+    line-height: 145%;
+    font-weight: 400;
+    position: relative;
+    align-self: stretch;
+}
+
+.employee-picker {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.employee {
+    background: #e5f2f7;
+    border-radius: 14px;
+    border-style: solid;
+    border-color: #26708d;
+    border-width: 2px;
+    padding: 14px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar {
+    background: #26708d;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    position: relative;
+    overflow: hidden;
+}
+
+.initials {
+    color: #ffffff;
+    text-align: left;
+    font-family: "Inter-ExtraBold", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    position: relative;
+}
+
+.identity {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.name2 {
+    color: #172126;
+    text-align: left;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    position: relative;
+    align-self: stretch;
+}
+
+.role {
+    color: #66757d;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    position: relative;
+    align-self: stretch;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.status {
+    background: #e5f4ed;
+    border-radius: 999px;
+    padding: 4px 8px 4px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.label {
+    color: #247254;
+    text-align: left;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.4undefined;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.chevron-right {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    overflow: visible;
+}
+
+.employee2 {
+    background: #ffffff;
+    border-radius: 14px;
+    border-style: solid;
+    border-color: #d7e0e4;
+    border-width: 1px;
+    padding: 14px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar2 {
+    background: #54666f;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    position: relative;
+    overflow: hidden;
+}
+
+.chevron-right2 {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    overflow: visible;
+}
+
+.status2 {
+    background: #f4f7f8;
+    border-radius: 999px;
+    padding: 4px 8px 4px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.label2 {
+    color: #54666f;
+    text-align: left;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.4undefined;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.chevron-right3 {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    overflow: visible;
+}
+
+.chevron-right4 {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    overflow: visible;
+}
+
+.help {
+    color: #66757d;
+    text-align: center;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    position: relative;
+    align-self: stretch;
+}

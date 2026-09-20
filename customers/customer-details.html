@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#102b37">
+    <title>Customer Details</title>
+
+    <link rel="stylesheet" href="customer-details.css">
+</head>
+
+<body>
+
+    <div class="customer-details-page">
+
+        <header class="header">
+
+            <button class="back-button" id="backButton">
+                ←
+            </button>
+
+            <div class="heading">
+                <div class="title">Customer</div>
+                <div class="subtitle">Customer details</div>
+            </div>
+
+        </header>
+
+
+        <main class="content">
+
+            <div class="card">
+
+                <div class="customer-header">
+
+                    <div class="initials">
+                        <div class="initials-value"></div>
+                    </div>
+
+                    <div class="customer">
+                        <div class="name"></div>
+                        <div class="contact"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <img class="detail-icon" src="../icons/phone_icon.png" alt="Phone">
+
+                    <div class="value phone-number"></div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <img class="detail-icon" src="../icons/location_icon.png" alt="Location">
+
+                    <div class="value location"></div>
+
+                </div>
+
+            </div>
+
+            <div class="section-title">Machines</div>
+            <div class="machine-results"></div>
+
+        </main>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase.js"></script>
+    <script src="customer-details.js"></script>
+    <script src="../pwa.js"></script>
+
+</body>
+
+</html>

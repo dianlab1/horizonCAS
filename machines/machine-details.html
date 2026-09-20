@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#102b37">
+
+    <title>Machine Details</title>
+
+    <link rel="stylesheet" href="machine-details.css">
+</head>
+
+<body>
+
+    <div class="machine-details-page">
+
+        <header class="header">
+
+            <button class="back-button" id="backButton">
+                ←
+            </button>
+
+            <div class="heading">
+                <div class="title">Machine</div>
+                <div class="subtitle">Machine details</div>
+            </div>
+
+        </header>
+
+
+        <main class="content">
+
+            <!-- Machine information -->
+            <section class="machine-card">
+
+                <div class="machine-icon">
+                    ⚙
+                </div>
+
+                <div class="machine-information">
+
+                    <div class="machine-name"></div>
+
+                    <div class="machine-serial"></div>
+
+                    <div class="machine-customer"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Parts -->
+            <section class="parts-section">
+
+                <div class="section-title">
+                    Parts
+                </div>
+
+                <div class="part-results"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase.js"></script>
+    <script src="machine-details.js"></script>
+    <script src="../pwa.js"></script>
+
+</body>
+
+</html>

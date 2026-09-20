@@ -1,0 +1,210 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f5f7f8;
+    color: #172126;
+    font-family: "Inter-Regular", Arial, sans-serif;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.machine-details-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    background: #102b37;
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 16px 20px;
+    gap: 14px;
+}
+
+.back-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #183847;
+    color: #ffffff;
+
+    font-size: 24px;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.title {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #b9c8ce;
+    font-size: 13px;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    padding: 20px 16px 32px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+/* =========================
+   MACHINE CARD
+========================= */
+
+.machine-card {
+    background: #ffffff;
+
+    border: 1px solid #d7e0e4;
+    border-radius: 16px;
+
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    box-shadow: 0px 3px 12px 0px rgba(16, 43, 55, 0.08);
+}
+
+.machine-icon {
+    width: 56px;
+    height: 56px;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background: #e8edf0;
+    color: #26708d;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+}
+
+.machine-information {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.machine-name {
+    color: #172126;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.machine-serial {
+    color: #66757d;
+    font-size: 13px;
+}
+
+.machine-customer {
+    color: #26708d;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   PARTS
+========================= */
+
+.parts-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.section-title {
+    color: #172126;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.part-results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* =========================
+   PART CARD
+========================= */
+
+.part-card {
+    background: #ffffff;
+
+    border: 1px solid #d7e0e4;
+    border-radius: 12px;
+
+    padding: 15px 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    box-shadow: 0px 2px 8px 0px rgba(16, 43, 55, 0.06);
+}
+
+.part-name {
+    color: #172126;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.part-type {
+    color: #66757d;
+    font-size: 12px;
+}
