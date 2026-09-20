@@ -1,8 +1,11 @@
-const CACHE_NAME = "horizon-app-v0.04";
+const CACHE_NAME = "horizon-app-v0.5";
 
 const APP_SHELL = [
     "./",
+    "./index.html",
     "./manifest.json",
+    "./pwa.js",
+    "./supabase.js",
 
     // Main
     "./main/main.html",
@@ -39,15 +42,8 @@ const APP_SHELL = [
     "./vsd.css",
 
     // Login
-    "./login/index.html",
     "./login/login.js",
     "./login/style.css",
-
-    // Supabase
-    "./supabase.js",
-
-    // PWA
-    "./pwa.js",
 
     // App icons
     "./icon-192.png",
@@ -55,11 +51,13 @@ const APP_SHELL = [
 ];
 
 
-// ================================
+// ==========================================
 // INSTALL
-// ================================
+// ==========================================
 
 self.addEventListener("install", event => {
+
+    console.log("Horizon service worker installing:", CACHE_NAME);
 
     event.waitUntil(
 
@@ -73,21 +71,28 @@ self.addEventListener("install", event => {
     );
 
     /*
-        We intentionally DON'T call skipWaiting()
-        here.
+        IMPORTANT:
 
-        This allows the current version of the
-        app to keep running until the user accepts
-        the update.
+        We do NOT call skipWaiting() here.
+
+        The new service worker will stay in the
+        "waiting" state until pwa.js asks it to
+        activate.
+
+        This allows us to ask the user:
+
+        "A new version is available. Update now?"
     */
 });
 
 
-// ================================
+// ==========================================
 // ACTIVATE
-// ================================
+// ==========================================
 
 self.addEventListener("activate", event => {
+
+    console.log("Horizon service worker activated:", CACHE_NAME);
 
     event.waitUntil(
 
@@ -99,10 +104,18 @@ self.addEventListener("activate", event => {
                     cacheNames
                         .filter(cacheName => {
 
-                            return cacheName !== CACHE_NAME;
+                            return (
+                                cacheName !== CACHE_NAME &&
+                                cacheName.startsWith("horizon-app-")
+                            );
 
                         })
                         .map(cacheName => {
+
+                            console.log(
+                                "Deleting old cache:",
+                                cacheName
+                            );
 
                             return caches.delete(cacheName);
 
@@ -122,14 +135,13 @@ self.addEventListener("activate", event => {
 });
 
 
-// ================================
+// ==========================================
 // FETCH
-// ================================
+// ==========================================
 
 self.addEventListener("fetch", event => {
 
     const request = event.request;
-
 
     // Only handle GET requests
     if (request.method !== "GET") {
@@ -138,28 +150,33 @@ self.addEventListener("fetch", event => {
 
 
     /*
-        DON'T cache Supabase requests.
+        NEVER CACHE SUPABASE
 
         Customer, machine, part and job data
-        should come directly from Supabase.
+        should come from Supabase.
     */
 
-    if (request.url.includes(".supabase.co")) {
+    if (
+        request.url.includes(".supabase.co") ||
+        request.url.includes("supabase.co")
+    ) {
+
         return;
+
     }
 
 
     /*
-        PAGE NAVIGATION
+        NAVIGATION REQUESTS
 
-        Try the internet first.
+        Network first.
 
         This is important because it allows the
-        browser to discover a new version of the
-        website.
+        installed PWA to receive new HTML when
+        online.
 
-        If the internet isn't available,
-        use the cached version.
+        If the network isn't available, use the
+        cached version.
     */
 
     if (request.mode === "navigate") {
@@ -196,10 +213,13 @@ self.addEventListener("fetch", event => {
                     return caches.match(request)
                         .then(cachedResponse => {
 
-                            return cachedResponse ||
-                                caches.match(
-                                    "./main/main.html"
-                                );
+                            if (cachedResponse) {
+                                return cachedResponse;
+                            }
+
+                            return caches.match(
+                                "./index.html"
+                            );
 
                         });
 
@@ -216,8 +236,8 @@ self.addEventListener("fetch", event => {
 
         Cache first.
 
-        If the file isn't cached, download it
-        and save it to the cache.
+        If the file isn't cached, fetch it
+        from the network and save it.
     */
 
     event.respondWith(
@@ -227,10 +247,14 @@ self.addEventListener("fetch", event => {
             .then(cachedResponse => {
 
                 if (cachedResponse) {
+
                     return cachedResponse;
+
                 }
 
+
                 return fetch(request)
+
                     .then(response => {
 
                         if (response.ok) {
@@ -261,16 +285,29 @@ self.addEventListener("fetch", event => {
 });
 
 
-// ================================
-// UPDATE MESSAGE
-// ================================
+// ==========================================
+// MESSAGE FROM THE APP
+// ==========================================
 
 self.addEventListener("message", event => {
 
+    if (!event.data) {
+        return;
+    }
+
+
+    /*
+        pwa.js sends this when the user presses
+        "Update now".
+    */
+
     if (
-        event.data &&
         event.data.type === "SKIP_WAITING"
     ) {
+
+        console.log(
+            "Activating new Horizon service worker..."
+        );
 
         self.skipWaiting();
 
