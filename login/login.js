@@ -16,7 +16,7 @@ employeeCards.forEach(employee => {
 
         localStorage.setItem("currentWorker", employeeName);
 
-        window.location.href = "../main/main.html";
+        window.location.href = "./main/main.html";
 
     });
 

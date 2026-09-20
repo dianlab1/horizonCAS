@@ -3,7 +3,7 @@ const currentWorker = localStorage.getItem("currentWorker");
 if (currentWorker) {
     const greeting = document.querySelector(".title");
     greeting.textContent = "Good Morning, " + currentWorker;
-} else window.location.href = "/login/index.html";
+} else window.location.href = "./login/index.html";
 
 const manageJobsWindow = document.querySelector(".module");
 manageJobsWindow.addEventListener("click", function () {
