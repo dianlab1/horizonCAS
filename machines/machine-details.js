@@ -113,7 +113,7 @@ backButton.addEventListener("click", function () {
 
     if (selectedMachine && selectedMachine.customer_id) {
         window.location.href =
-            `../customers/customer-details.html?id=${selectedMachine.customer_id}`;
+            "../main/main.html";
     } else {
         window.location.href = "../customers/customers.html";
     }

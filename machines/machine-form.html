@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#102b37">
+    <title>Machine Form</title>
+    <link rel="stylesheet" href="machine-form.css">
+</head>
+
+<body>
+
+    <div class="machine-form">
+        <div class="card">
+            <div class="name">
+                <div class="text">Machine: </div>
+                <input class="machine-input" placeholder="Enter Machine Name">
+            </div>
+            <div class="customer">
+                <div class="text">Customer: </div>
+                <select class="customer-input"></select>
+            </div>
+            <div class="make">
+                <div class="text">Make: </div>
+                <input class="make-input" placeholder="Enter Compressor Make">
+            </div>
+            <div class="model">
+                <div class="text">Model: </div>
+                <input class="model-input" placeholder="Enter Compressor Model">
+            </div>
+            <div class="serial-number">
+                <div class="text">SerialNumber: </div>
+                <input class="serial-input" placeholder="Enter Serial Number">
+            </div>
+            <div class="oil-amount">
+                <div class="text">Oil Amount: </div>
+                <input class="oil-input" placeholder="Enter Amount Oil Needed">
+            </div>
+            <div class="notes">
+                <div class="text">Notes: </div>
+                <input class="notes-input" placeholder="Additional Notes:">
+            </div>
+        </div>
+
+        <div class="footer">
+            <button class="save">Save</button>
+            <button class="cancel">Cancel</button>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="../supabase.js"></script>
+        <script src="machine-form.js"></script>
+        <script src="../pwa.js"></script>
+</body>
+
+</html>
