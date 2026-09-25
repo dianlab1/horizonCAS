@@ -113,8 +113,39 @@ backButton.addEventListener("click", function () {
 
     if (selectedMachine && selectedMachine.customer_id) {
         window.location.href =
-            "../main/main.html";
+            "../machines/machines.html";
     } else {
         window.location.href = "../customers/customers.html";
     }
+});
+
+const editButton = document.querySelector("#editButton");
+
+editButton.addEventListener("click", function () {
+    window.location.href = `machine-form.html?id=${machineId}`;
+});
+
+const deleteBtn = document.querySelector("#deleteButton");
+
+deleteBtn.addEventListener("click", async function () {
+    const confirmed = confirm(
+        "Are you sure you want to delete this machine ?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    const { error } = await db
+        .from("machines")
+        .delete()
+        .eq("id", machineId);
+
+    if (error) {
+        console.error("Error deleting machine:", error);
+        alert("Could not delete machine.");
+        return;
+    }
+
+    window.location.href = "../machines/machines.html";
 });

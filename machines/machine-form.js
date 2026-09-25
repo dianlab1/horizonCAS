@@ -1,12 +1,15 @@
-customerInput = document.querySelector(".customer-input");
-makeInput = document.querySelector(".make-input");
-modelInput = document.querySelector(".model-input");
-serialInput = document.querySelector(".serial-input");
-oilInput = document.querySelector(".oil-input");
-notesInput = document.querySelector(".notes-input");
-machineNameInput = document.querySelector(".machine-input");
-saveBtn = document.querySelector(".save");
-cancelBtn = document.querySelector(".cancel");
+const customerInput = document.querySelector(".customer-input");
+const makeInput = document.querySelector(".make-input");
+const modelInput = document.querySelector(".model-input");
+const serialInput = document.querySelector(".serial-input");
+const oilInput = document.querySelector(".oil-input");
+const notesInput = document.querySelector(".notes-input");
+const machineNameInput = document.querySelector(".machine-input");
+const saveBtn = document.querySelector(".save");
+const cancelBtn = document.querySelector(".cancel");
+
+const params = new URLSearchParams(window.location.search);
+const machineId = params.get("id");
 
 let customers = [];
 
@@ -45,18 +48,60 @@ async function loadCustomers() {
         customerInput.appendChild(option);
     });
 
+};
+
+async function loadMachine() {
+
+    const { data: machine, error } = await db
+        .from("machines")
+        .select("*")
+        .eq("id", machineId)
+        .single();
+
+    if (error) {
+        console.error("Error loading machine:", error);
+        return;
+    }
+
+    machineNameInput.value = machine.name;
+    customerInput.value = machine.customer_id;
+    makeInput.value = machine.make || "";
+    modelInput.value = machine.model || "";
+    serialInput.value = machine.serial_number || "";
+    oilInput.value = machine.oil_amount || "";
+    notesInput.value = machine.notes || "";
 }
 
-loadCustomers();
+async function initializeForm() {
+
+    await loadCustomers();
+
+    if (machineId) {
+        await loadMachine();
+    }
+}
+
+initializeForm();
 
 saveBtn.addEventListener("click", async function () {
-    const name = machineNameInput.value;
+
     const customer_id = customerInput.value;
-    const make = makeInput.value;
-    const model = modelInput.value;
-    const serial_number = serialInput.value;
-    const oil_amount = oilInput.value;
-    const notes = notesInput.value;
+    const name = machineNameInput.value.trim();
+    const make = makeInput.value.trim();
+    const model = modelInput.value.trim();
+    const serial_number = serialInput.value.trim();
+    const oil_amount = oilInput.value.trim();
+    const notes = notesInput.value.trim();
+
+    if (name === "") {
+        alert("Please enter a machine name.");
+        return;
+    }
+
+    if (customer_id === "") {
+        alert("Please select a customer.");
+        return;
+    }
 
     const machineData = {
         name,
@@ -68,17 +113,41 @@ saveBtn.addEventListener("click", async function () {
         notes
     };
 
-    const { data, error } = await db
-        .from("machines")
-        .insert(machineData)
-        .select()
-        .single();
+    let error;
+
+    if (machineId) {
+
+        const result = await db
+            .from("machines")
+            .update(machineData)
+            .eq("id", machineId);
+
+        error = result.error;
+
+    } else {
+
+        const result = await db
+            .from("machines")
+            .insert(machineData);
+
+        error = result.error;
+    }
 
     if (error) {
         console.error("Full Error:", error);
+        alert("Could not save machine.");
         return;
     }
 
-    console.log("Machine created:", data);
-})
+    if (machineId) {
+        window.location.href =
+            `../machines/machine-details.html?id=${machineId}`;
+    } else {
+        window.location.href = "../machines/machines.html";
+    }
+});
+
+cancelBtn.addEventListener("click", function () {
+    window.location.href = "../machines/machines.html";
+});
 

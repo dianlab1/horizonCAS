@@ -118,3 +118,9 @@ let backButton = document.querySelector(".arrow-left");
 backButton.addEventListener("click", function () {
     window.location.href = "../main/main.html";
 });
+
+const addMachineButton = document.querySelector(".add-machine");
+
+addMachineButton.addEventListener("click", function () {
+    window.location.href = "machine-form.html";
+});

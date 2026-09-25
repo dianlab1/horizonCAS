@@ -550,3 +550,28 @@
     font-weight: 700;
     position: relative;
 }
+
+/* Add Machine Button */
+
+.add-machine {
+    border: none;
+    background: #183847;
+    color: #ffffff;
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 9px;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.add-machine:hover {
+    background: #26708d;
+}
+
+.add-machine:active {
+    transform: translateY(1px);
+}
