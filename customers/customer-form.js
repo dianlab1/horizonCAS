@@ -90,3 +90,7 @@ saveBtn.addEventListener("click", async function () {
         window.location.href = "../customers/customers.html";
     }
 });
+
+cancelBtn.addEventListener("click", function () {
+    window.location.href = "../customers/customers.html";
+});
