@@ -135,3 +135,9 @@ let backButton = document.querySelector(".arrow-left");
 backButton.addEventListener("click", function () {
     window.location.href = "../main/main.html";
 });
+
+const addCustomerButton = document.querySelector(".add-customer");
+
+addCustomerButton.addEventListener("click", function () {
+    window.location.href = "customer-form.html";
+});

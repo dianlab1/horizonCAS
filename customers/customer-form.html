@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#102b37">
+    <title>Customer Form</title>
+    <link rel="stylesheet" href="customer-form.css">
+</head>
+
+<body>
+    <div class="machine-form">
+        <div class="card">
+            <div class="name">
+                <div class="text">Customer Name: </div>
+                <input class="name-input" placeholder="Enter Customer Name">
+            </div>
+            <div class="contact-person">
+                <div class="text">Contact Person: </div>
+                <input class="person-input" placeholder="Enter Contact Person Name">
+            </div>
+            <div class="contact-phone">
+                <div class="text">Contact Person Number: </div>
+                <input class="phone-input" placeholder="Enter Contact Person Number">
+            </div>
+            <div class="location">
+                <div class="text">Customer Location: </div>
+                <input class="location-input" placeholder="Enter Customer Location">
+            </div>
+        </div>
+
+        <div class="footer">
+            <button class="save">Save</button>
+            <button class="cancel">Cancel</button>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="../supabase.js"></script>
+        <script src="customer-form.js"></script>
+        <script src="../pwa.js"></script>
+</body>
+
+</html>

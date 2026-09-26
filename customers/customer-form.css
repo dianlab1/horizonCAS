@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e8edf0;
+    color: #172126;
+}
+
+.machine-form {
+    min-height: 100vh;
+    width: 100%;
+    background: #e8edf0;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 18px;
+}
+
+.machine-form>.card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px 20px;
+    box-shadow: 0 4px 18px rgba(16, 43, 55, 0.08);
+}
+
+/* =========================
+   FORM FIELDS
+========================= */
+
+.name,
+.contact-person,
+.contact-phone,
+.location {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 18px;
+}
+
+.text {
+    color: #183847;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.name-input,
+.person-input,
+.phone-input,
+.location-input {
+    width: 100%;
+    height: 46px;
+    padding: 0 14px;
+    border: 1px solid #d2dce1;
+    border-radius: 10px;
+    background: #f8fafb;
+    color: #172126;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.name-input::placeholder,
+.person-input::placeholder,
+.phone-input::placeholder,
+.location-input::placeholder {
+    color: #8a989f;
+}
+
+.name-input:focus,
+.person-input:focus,
+.phone-input:focus,
+.location-input:focus {
+    border-color: #26708d;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(38, 112, 141, 0.12);
+}
+
+/* =========================
+   FOOTER BUTTONS
+========================= */
+
+.footer {
+    width: 100%;
+    max-width: 600px;
+    margin: 6px auto 0;
+    display: flex;
+    gap: 12px;
+}
+
+.save,
+.cancel {
+    flex: 1;
+    height: 48px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+.save {
+    border: none;
+    background: #183847;
+    color: #ffffff;
+    box-shadow: 0 3px 8px rgba(16, 43, 55, 0.18);
+}
+
+.save:hover {
+    background: #26708d;
+}
+
+.save:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+.cancel {
+    border: 1px solid #cbd6db;
+    background: #ffffff;
+    color: #183847;
+}
+
+.cancel:hover {
+    background: #f3f6f7;
+}
+
+.cancel:active {
+    transform: translateY(1px);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .machine-form {
+        padding: 16px 12px 20px;
+    }
+
+    .machine-form>.card {
+        padding: 20px 16px;
+        border-radius: 14px;
+    }
+
+    .footer {
+        gap: 10px;
+    }
+
+    .save,
+    .cancel {
+        height: 46px;
+    }
+}
+
+/* =========================
+   TABLET / DESKTOP
+========================= */
+
+@media (min-width: 768px) {
+
+    .machine-form {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .machine-form>.card {
+        padding: 30px 28px;
+    }
+}

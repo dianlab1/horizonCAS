@@ -88,3 +88,34 @@ async function loadMachines() {
 }
 
 loadMachines();
+
+const editButton = document.querySelector("#editButton");
+
+editButton.addEventListener("click", function () {
+    window.location.href = `customer-form.html?id=${customerId}`;
+});
+
+const deleteBtn = document.querySelector("#deleteButton");
+
+deleteBtn.addEventListener("click", async function () {
+    const confirmed = confirm(
+        "Are you sure you want to delete this customer ?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    const { error } = await db
+        .from("customers")
+        .delete()
+        .eq("id", customerId);
+
+    if (error) {
+        console.error("Error deleting customer:", error);
+        alert("Could not delete customer.");
+        return;
+    }
+
+    window.location.href = "../customers/customers.html";
+});

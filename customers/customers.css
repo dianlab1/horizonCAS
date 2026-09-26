@@ -503,3 +503,26 @@
     align-self: stretch;
     padding: 20px;
 }
+
+.add-customer {
+    border: none;
+    background: #183847;
+    color: #ffffff;
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 9px;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.add-customer:hover {
+    background: #26708d;
+}
+
+.add-customer:active {
+    transform: translateY(1px);
+}

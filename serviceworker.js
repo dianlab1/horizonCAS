@@ -1,4 +1,4 @@
-const CACHE_NAME = "horizon-app-v0.08";
+const CACHE_NAME = "horizon-app-v0.09";
 
 const APP_SHELL = [
     "./",

@@ -243,3 +243,50 @@ body {
     color: #66757d;
     font-size: 12px;
 }
+
+.customer-actions {
+    display: flex;
+    gap: 8px;
+}
+
+#editButton,
+#deleteButton {
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+#editButton {
+    border: none;
+    background: #183847;
+    color: #ffffff;
+}
+
+#editButton:hover {
+    background: #26708d;
+}
+
+#editButton:active {
+    transform: translateY(1px);
+}
+
+#deleteButton {
+    border: 1px solid #d9534f;
+    background: #ffffff;
+    color: #d9534f;
+}
+
+#deleteButton:hover {
+    background: #d9534f;
+    color: #ffffff;
+}
+
+#deleteButton:active {
+    transform: translateY(1px);
+}
