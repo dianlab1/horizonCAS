@@ -1,0 +1,314 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e8edf0;
+    color: #172126;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.part-details-page {
+    min-height: 100vh;
+    width: 100%;
+    background: #e8edf0;
+    padding-bottom: 40px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    width: 100%;
+    min-height: 72px;
+    background: #102b37;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+
+    padding: 14px 18px;
+
+    gap: 14px;
+}
+
+.back-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: transparent;
+    color: #ffffff;
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background 0.2s ease;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.heading {
+    flex: 1;
+    min-width: 0;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin-top: 3px;
+
+    font-size: 12px;
+    color: #b9c8ce;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.customer-actions {
+    display: flex;
+    gap: 8px;
+}
+
+#editButton,
+#deleteButton {
+    height: 40px;
+
+    padding: 0 14px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+}
+
+#editButton {
+    border: none;
+
+    background: #183847;
+    color: #ffffff;
+}
+
+#editButton:hover {
+    background: #26708d;
+}
+
+#editButton:active {
+    transform: translateY(1px);
+}
+
+#deleteButton {
+    border: 1px solid #d9534f;
+
+    background: #ffffff;
+    color: #d9534f;
+}
+
+#deleteButton:hover {
+    background: #d9534f;
+    color: #ffffff;
+}
+
+#deleteButton:active {
+    transform: translateY(1px);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.part-results {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 24px auto;
+
+    padding: 0 18px;
+}
+
+/* =========================
+   PART CARD
+========================= */
+
+.card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    padding: 24px 20px;
+
+    box-shadow:
+        0 4px 18px rgba(16, 43, 55, 0.08);
+}
+
+.part-header {
+    width: 100%;
+}
+
+.part {
+    width: 100%;
+}
+
+/* =========================
+   DETAIL ROWS
+========================= */
+
+.detail {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #e3e9ec;
+}
+
+.detail:first-child {
+    padding-top: 0;
+}
+
+.detail:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.detail-label {
+    font-size: 12px;
+    font-weight: 700;
+
+    color: #183847;
+}
+
+.detail-value {
+    font-size: 14px;
+    line-height: 1.5;
+
+    color: #172126;
+
+    word-break: break-word;
+}
+
+/* =========================
+   NO RESULT
+========================= */
+
+.no-result {
+    width: 100%;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    color: #7b898f;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 4px 18px rgba(16, 43, 55, 0.08);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .header {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+    }
+
+    .customer-actions {
+        gap: 6px;
+    }
+
+    #editButton,
+    #deleteButton {
+        height: 38px;
+        padding: 0 10px;
+
+        font-size: 12px;
+    }
+
+    .part-results {
+        margin: 16px auto;
+        padding: 0 12px;
+    }
+
+    .card {
+        padding: 20px 16px;
+        border-radius: 14px;
+    }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 480px) {
+
+    .header {
+        align-items: flex-start;
+    }
+
+    .back-button {
+        flex-shrink: 0;
+    }
+
+    .customer-actions {
+        flex-direction: column;
+    }
+
+    #editButton,
+    #deleteButton {
+        width: 100%;
+    }
+
+    .part-results {
+        margin-top: 14px;
+    }
+}

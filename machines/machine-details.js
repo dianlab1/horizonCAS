@@ -102,6 +102,13 @@ async function loadMachine() {
         partCard.appendChild(partType);
 
         partResults.appendChild(partCard);
+
+        partCard.addEventListener("click", function () {
+
+            window.location.href =
+                `../parts/parts-details.html?id=${part.id}&machineId=${machineId}`;
+
+        });
     });
 }
 

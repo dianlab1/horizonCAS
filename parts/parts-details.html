@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#102b37">
+    <title>Part Details</title>
+
+    <link rel="stylesheet" href="parts-details.css">
+</head>
+
+<body>
+
+    <div class="part-details-page">
+
+        <header class="header">
+
+            <button class="back-button" id="backButton">
+                ←
+            </button>
+
+            <div class="heading">
+                <div class="title">Part</div>
+                <div class="subtitle">Part details</div>
+            </div>
+            <div class="customer-actions">
+                <button id="editButton">Edit Part</button>
+                <button id="deleteButton">Delete Part</button>
+            </div>
+        </header>
+
+        <div class="part-results"></div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase.js"></script>
+    <script src="parts-details.js"></script>
+    <script src="../pwa.js"></script>
+
+</body>
+
+</html>

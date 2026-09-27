@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#102b37">
+    <title>Part Form</title>
+    <link rel="stylesheet" href="part-form.css">
+</head>
+
+<body>
+    <div class="part-form">
+        <div class="card">
+            <div class="name">
+                <div class="text">Part Name: </div>
+                <input class="name-input" placeholder="Enter Part Name">
+            </div>
+            <div class="type">
+                <div class="text">Type: </div>
+                <input class="type-input" placeholder="Enter Part Type">
+            </div>
+            <div class="enviro">
+                <div class="text">Enviro: </div>
+                <input class="enviro-input" placeholder="Enter Enviro Code">
+            </div>
+            <div class="shumbala">
+                <div class="text">Shumbala: </div>
+                <input class="shumbala-input" placeholder="Enter Shumbala Code">
+            </div>
+            <div class="local">
+                <div class="text">Local: </div>
+                <input class="local-input" placeholder="Enter Local Code">
+            </div>
+            <div class="man">
+                <div class="text">Manufacturer Part Number: </div>
+                <input class="man-input" placeholder="Enter Man Part Number">
+            </div>
+            <div class="filrec">
+                <div class="text">Filrec: </div>
+                <input class="filrec-input" placeholder="Enter Filrec Code">
+            </div>
+            <div class="description">
+                <div class="text">Description: </div>
+                <input class="description-input" placeholder="Enter Description">
+            </div>
+            <div class="notes">
+                <div class="text">Notes: </div>
+                <input class="notes-input" placeholder="Enter Notes">
+            </div>
+        </div>
+
+        <div class="footer">
+            <button class="save">Save</button>
+            <button class="cancel">Cancel</button>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="../supabase.js"></script>
+        <script src="part-form.js"></script>
+        <script src="../pwa.js"></script>
+</body>
+
+</html>
