@@ -65,6 +65,72 @@
 
                 <div class="part-results"></div>
 
+                <div class="part-actions">
+                    <button id="addPartButton">+ Add Part</button>
+                    <button id="removePartButton">Remove Part</button>
+                </div>
+
+
+                <div class="modal-overlay" id="addPartModal">
+
+                    <div class="part-modal">
+
+                        <div class="modal-header">
+                            <div>
+                                <div class="modal-title">Add Part</div>
+                                <div class="modal-subtitle">
+                                    Select a part to assign to this machine
+                                </div>
+                            </div>
+
+                            <button class="modal-close" id="closePartModal">
+                                ×
+                            </button>
+                        </div>
+
+
+                        <div class="modal-search">
+                            <input type="text" id="partSearch" placeholder="Search parts...">
+                        </div>
+
+
+                        <div class="available-parts" id="availableParts">
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button id="cancelPartModal">
+                                Cancel
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-overlay" id="removePartModal">
+                    <div class="part-modal">
+
+                        <div class="modal-header">
+                            <div>
+                                <div class="modal-title">Remove Part</div>
+                                <div class="modal-subtitle">
+                                    Select a part to remove from this machine
+                                </div>
+                            </div>
+
+                            <button class="modal-close" id="closeRemovePartModal">×</button>
+                        </div>
+
+                        <div class="available-parts" id="assignedParts"></div>
+
+                        <div class="modal-footer">
+                            <button id="cancelRemovePartModal">Cancel</button>
+                        </div>
+
+                    </div>
+                </div>
+
             </section>
 
         </main>

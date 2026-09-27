@@ -6,6 +6,21 @@ const machineSerial = document.querySelector(".machine-serial");
 const machineCustomer = document.querySelector(".machine-customer");
 const partResults = document.querySelector(".part-results");
 
+const addPartButton = document.querySelector("#addPartButton");
+const removePartButton = document.querySelector("#removePartButton");
+const addPartModal = document.querySelector("#addPartModal");
+const closePartModal = document.querySelector("#closePartModal");
+const cancelPartModal = document.querySelector("#cancelPartModal");
+const partSearch = document.querySelector("#partSearch");
+const availableParts = document.querySelector("#availableParts");
+
+const removePartModal = document.querySelector("#removePartModal");
+const closeRemovePartModal = document.querySelector("#closeRemovePartModal");
+const cancelRemovePartModal = document.querySelector("#cancelRemovePartModal");
+const assignedParts = document.querySelector("#assignedParts");
+
+let availablePartList = [];
+
 let selectedMachine;
 
 async function loadMachine() {
@@ -24,6 +39,7 @@ async function loadMachine() {
     }
 
     selectedMachine = machine;
+    partResults.replaceChildren();
 
     // Display machine information
     machineName.textContent = machine.name;
@@ -155,4 +171,277 @@ deleteBtn.addEventListener("click", async function () {
     }
 
     window.location.href = "../machines/machines.html";
+});
+
+addPartButton.addEventListener("click", async function () {
+    addPartModal.classList.add("active");
+
+    await loadAvailableParts();
+});
+
+closePartModal.addEventListener("click", function () {
+    addPartModal.classList.remove("active");
+});
+
+cancelPartModal.addEventListener("click", function () {
+    addPartModal.classList.remove("active");
+});
+
+addPartModal.addEventListener("click", function (event) {
+    if (event.target === addPartModal) {
+        addPartModal.classList.remove("active");
+    }
+});
+
+async function loadAvailableParts() {
+
+    const { data: assignedParts, error: assignedError } = await db
+        .from("machine_parts")
+        .select("part_id")
+        .eq("machine_id", machineId);
+
+    if (assignedError) {
+        console.error("Error loading assigned parts:", assignedError);
+        return;
+    }
+
+    const assignedPartIds = assignedParts.map(function (item) {
+        return item.part_id;
+    });
+
+    const { data: allParts, error: partsError } = await db
+        .from("parts")
+        .select("*")
+        .order("name");
+
+    if (partsError) {
+        console.error("Error loading parts:", partsError);
+        return;
+    }
+
+    availablePartList = allParts.filter(function (part) {
+        return !assignedPartIds.includes(part.id);
+    });
+
+    displayAvailableParts(availablePartList);
+}
+
+function displayAvailableParts(partsToDisplay) {
+
+    availableParts.replaceChildren();
+
+    if (partsToDisplay.length === 0) {
+        const noParts = document.createElement("div");
+
+        noParts.className = "no-available-parts";
+
+        noParts.textContent = "No available parts found.";
+
+        availableParts.appendChild(noParts);
+
+        return;
+    };
+
+    partsToDisplay.forEach(function (part) {
+        const partElement = document.createElement("div");
+        partElement.className = "available-part";
+
+        const name = document.createElement("div");
+        name.className = "available-part-name";
+        name.textContent = part.name;
+
+        const info = document.createElement("div");
+        info.className = "available-part-info";
+        info.textContent = part.category || "No type";
+
+        const code = document.createElement("div");
+        code.className = "available-part-code";
+        code.textContent =
+            part.enviro_code ||
+            part.shumbala_code ||
+            part.manufacturer_part_number ||
+            "No part code";
+
+        partElement.appendChild(name);
+        partElement.appendChild(info);
+        partElement.appendChild(code);
+
+        availableParts.appendChild(partElement);
+
+        partElement.addEventListener("click", function () {
+            assignPart(part.id);
+        });
+    });
+};
+
+partSearch.addEventListener("input", function () {
+
+    const searchTerm = partSearch.value.toLowerCase().trim();
+
+    const filteredParts = availablePartList.filter(function (part) {
+
+        return (part.name || "")
+            .toLowerCase()
+            .includes(searchTerm);
+
+    });
+    displayAvailableParts(filteredParts);
+});
+
+async function assignPart(partId) {
+
+    const { error } = await db
+        .from("machine_parts")
+        .insert({
+            machine_id: machineId,
+            part_id: partId
+        });
+
+    if (error) {
+        console.error("Error assigning part:", error);
+        alert("Could not assign part.");
+        return;
+    }
+
+    addPartModal.classList.remove("active");
+    await loadMachine();
+
+}
+
+removePartButton.addEventListener("click", async function () {
+    removePartModal.classList.add("active");
+
+    await loadAssignedParts();
+});
+
+async function loadAssignedParts() {
+
+    const { data: machineParts, error } = await db
+        .from("machine_parts")
+        .select("part_id")
+        .eq("machine_id", machineId);
+
+    if (error) {
+        console.error("Error loading assigned parts:", error);
+        return;
+    }
+
+    const partIds = machineParts.map(function (machinePart) {
+        return machinePart.part_id;
+    });
+
+    if (partIds.length === 0) {
+        assignedParts.replaceChildren();
+
+        const noParts = document.createElement("div");
+        noParts.className = "no-available-parts";
+        noParts.textContent = "No parts assigned to this machine.";
+
+        assignedParts.appendChild(noParts);
+
+        return;
+    }
+
+    const { data: parts, error: partsError } = await db
+        .from("parts")
+        .select("*")
+        .in("id", partIds);
+
+    if (partsError) {
+        console.error("Error loading parts:", partsError);
+        return;
+    }
+
+    displayAssignedParts(parts);
+}
+
+function displayAssignedParts(partsToDisplay) {
+
+    assignedParts.replaceChildren();
+
+    if (partsToDisplay.length === 0) {
+        const noParts = document.createElement("div");
+
+        noParts.className = "no-available-parts";
+
+        noParts.textContent = "No parts assigned to this machine.";
+
+        assignedParts.appendChild(noParts);
+
+        return;
+    }
+
+    partsToDisplay.forEach(function (part) {
+
+        const partElement = document.createElement("div");
+        partElement.className = "available-part";
+
+        const name = document.createElement("div");
+        name.className = "available-part-name";
+        name.textContent = part.name;
+
+        const info = document.createElement("div");
+        info.className = "available-part-info";
+        info.textContent = part.category || "No type";
+
+        const code = document.createElement("div");
+        code.className = "available-part-code";
+
+        code.textContent =
+            part.enviro_code ||
+            part.shumbala_code ||
+            part.manufacturer_part_number ||
+            "No part code";
+
+        partElement.appendChild(name);
+        partElement.appendChild(info);
+        partElement.appendChild(code);
+
+        partElement.addEventListener("click", function () {
+            removePart(part.id);
+        });
+
+        assignedParts.appendChild(partElement);
+    });
+}
+
+async function removePart(partId) {
+
+    const confirmed = confirm(
+        "Are you sure you want to remove this part from the machine?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    const { error } = await db
+        .from("machine_parts")
+        .delete()
+        .eq("machine_id", machineId)
+        .eq("part_id", partId);
+
+    if (error) {
+        console.error("Error removing part:", error);
+        alert("Could not remove part.");
+        return;
+    }
+
+    removePartModal.classList.remove("active");
+
+    await loadMachine();
+}
+
+closeRemovePartModal.addEventListener("click", function () {
+    removePartModal.classList.remove("active");
+});
+
+cancelRemovePartModal.addEventListener("click", function () {
+    removePartModal.classList.remove("active");
+});
+
+removePartModal.addEventListener("click", function (event) {
+    if (event.target === removePartModal) {
+        removePartModal.classList.remove("active");
+    }
 });
