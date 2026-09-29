@@ -6,10 +6,12 @@ const APP_SHELL = [
     "./manifest.json",
     "./pwa.js",
     "./supabase.js",
+    "./data.js",
 
     // Main
     "./main/main.html",
     "./main/main.css",
+    "./main/main.js",
 
     // Customers
     "./customers/customers.html",
@@ -18,6 +20,9 @@ const APP_SHELL = [
     "./customers/customer-details.html",
     "./customers/customer-details.css",
     "./customers/customer-details.js",
+    "./customer/customer-form.css",
+    "./customer/customer-form.js",
+    "./customer/customer-form.html",
 
     // Machines
     "./machines/machines.html",
@@ -26,18 +31,36 @@ const APP_SHELL = [
     "./machines/machine-details.html",
     "./machines/machine-details.css",
     "./machines/machine-details.js",
+    "./machines/machine-form.js",
+    "./machines/machine-form.css",
+    "./machines/machine-form.html",
 
     // Parts
     "./parts/parts.html",
     "./parts/parts.css",
+    "./parts/parts.js",
+    "./parts/parts-details.html",
+    "./parts/parts-details.css",
+    "./parts/parts-details.js",
+    "./parts/part-form.html",
+    "./parts/part-form.css",
+    "./parts/part-form.js",
 
-    // Other pages
+    // Available Jobs
     "./availableJobs.html",
     "./availableJobs.css",
+
+    //Manage Jobs
     "./manageJobs.html",
     "./manageJobs.css",
+
+    //Main Pages
     "./style.css",
-    "./main.css",
+    "./main/main.css",
+    "./main/main.html",
+    "./main/main.js",
+
+    //VSD
     "./vsd.html",
     "./vsd.css",
 
@@ -47,7 +70,20 @@ const APP_SHELL = [
 
     // App icons
     "./icon-192.png",
-    "./icon-512.png"
+    "./icon-512.png",
+    "./anvil.png",
+    "./arrow_up_right.png",
+    "./bell.png",
+    "./boxes.png",
+    "./briefcase.png",
+    "./chevron_right.png",
+    "./clipboard.png",
+    "./left-arrow.png",
+    "./location_icon.png",
+    "./motorbike.png",
+    "./phone_icon.png",
+    "./users.png",
+    "./wrench.png"
 ];
 
 
