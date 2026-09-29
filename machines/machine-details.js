@@ -280,12 +280,19 @@ partSearch.addEventListener("input", function () {
 
     const filteredParts = availablePartList.filter(function (part) {
 
-        return (part.name || "")
-            .toLowerCase()
-            .includes(searchTerm);
+        return (
+            (part.name || "").toLowerCase().includes(searchTerm) ||
+            (part.category || "").toLowerCase().includes(searchTerm) ||
+            (part.enviro_code || "").toLowerCase().includes(searchTerm) ||
+            (part.shumbala_code || "").toLowerCase().includes(searchTerm) ||
+            (part.manufacturer_part_number || "").toLowerCase().includes(searchTerm) ||
+            (part.local_code || "").toLowerCase().includes(searchTerm)
+        );
 
     });
+
     displayAvailableParts(filteredParts);
+
 });
 
 async function assignPart(partId) {
