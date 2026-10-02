@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#102b37">
+    <title>ManageJobs</title>
+    <link rel="stylesheet" href="manageJobs-form.css">
+</head>
+
+<body>
+
+    <div class="job-form">
+
+        <div class="card">
+            <div class="name">
+                <div class="text">Job Name:</div>
+                <input class="name-input" type="text" placeholder="Enter Job Name">
+            </div>
+            <div class="customer">
+                <div class="text">Customer:</div>
+                <select class="customer-input">
+                    <option value="">Select Customer</option>
+                </select>
+            </div>
+            <div class="machine">
+                <div class="text">Machine:</div>
+                <select class="machine-input" disabled>
+                    <option value="">Select Customer First</option>
+                </select>
+            </div>
+            <div class="service">
+                <div class="text">Type of Service:</div>
+
+                <select class="service-input">
+                    <option value="">Select Service Type</option>
+                    <option value="Major">Major</option>
+                    <option value="Minor">Minor</option>
+                    <option value="Installation">Installation</option>
+                    <option value="Inspection">Inspection</option>
+                    <option value="Repair">Repair</option>
+                    <option value="Breakdown">Breakdown</option>
+                </select>
+            </div>
+            <div class="technicians">
+                <div class="text">Allocate Technician(s):</div>
+
+                <div class="technician-option">
+                    <input type="checkbox" value="1">
+                    <label>Andre</label>
+                </div>
+                <div class="technician-option">
+                    <input type="checkbox" value="2">
+                    <label>Callie</label>
+                </div>
+                <div class="technician-option">
+                    <input type="checkbox" value="3">
+                    <label>Dian</label>
+                </div>
+                <div class="technician-option">
+                    <input type="checkbox" value="4">
+                    <label>Jaco</label>
+                </div>
+                <div class="technician-option">
+                    <input type="checkbox" value="5">
+                    <label>Wiseman</label>
+                </div>
+            </div>
+            <div class="date">
+                <div class="text">Date:</div>
+                <input class="date-input" type="date">
+            </div>
+
+            <div class="time">
+                <div class="text">Time:</div>
+                <input class="time-input" type="time">
+            </div>
+            <div class="notes">
+                <div class="text">Job Notes:</div>
+
+                <textarea class="notes-input" placeholder="Enter job-specific notes"></textarea>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button class="save">Save</button>
+            <button class="cancel">Cancel</button>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase.js"></script>
+    <script src="manageJobs-form.js"></script>
+    <script src="../pwa.js"></script>
+</body>
+
+</html>

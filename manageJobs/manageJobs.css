@@ -564,3 +564,68 @@
     position: relative;
     overflow: visible;
 }
+
+.card .detail {
+    color: #66757d;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card .job-title {
+    color: #172126;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.job-results {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* =========================================================
+   CREATE JOB BUTTON
+   ========================================================= */
+
+.addJobBtn {
+    width: 100%;
+    height: 48px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #183847;
+    color: #ffffff;
+
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 8px rgba(16, 43, 55, 0.12);
+
+    transition:
+        background 0.15s ease,
+        transform 0.1s ease,
+        box-shadow 0.15s ease;
+}
+
+
+/* Hover */
+
+.addJobBtn:hover {
+    background: #26708d;
+    box-shadow: 0 4px 10px rgba(16, 43, 55, 0.16);
+}
+
+
+/* Press */
+
+.addJobBtn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(16, 43, 55, 0.12);
+}

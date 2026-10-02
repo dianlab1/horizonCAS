@@ -1,0 +1,347 @@
+/* =========================================================
+   JOB FORM
+   ========================================================= */
+
+.job-form,
+.job-form * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #e8edf0;
+    font-family: "Inter", Arial, sans-serif;
+    color: #172126;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+.job-form {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 16px 24px;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.card {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+
+    background: #ffffff;
+    border: 1px solid #d7e0e4;
+    border-radius: 14px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    box-shadow: 0 3px 12px rgba(16, 43, 55, 0.08);
+}
+
+
+/* =========================================================
+   FIELD GROUPS
+   ========================================================= */
+
+.name,
+.customer,
+.machine,
+.service,
+.technicians,
+.date,
+.time,
+.notes {
+    width: 100%;
+}
+
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+.text {
+    color: #172126;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+
+/* =========================================================
+   INPUTS / SELECTS
+   ========================================================= */
+
+.name-input,
+.customer-input,
+.machine-input,
+.service-input,
+.date-input,
+.time-input,
+.notes-input {
+    width: 100%;
+
+    border: 1px solid #d7e0e4;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #172126;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+/* Text inputs and selects */
+
+.name-input,
+.customer-input,
+.machine-input,
+.service-input,
+.date-input,
+.time-input {
+    height: 46px;
+    padding: 0 13px;
+}
+
+
+/* Textarea */
+
+.notes-input {
+    min-height: 110px;
+    padding: 12px 13px;
+    resize: vertical;
+}
+
+
+/* =========================================================
+   INPUT FOCUS
+   ========================================================= */
+
+.name-input:focus,
+.customer-input:focus,
+.machine-input:focus,
+.service-input:focus,
+.date-input:focus,
+.time-input:focus,
+.notes-input:focus {
+    border-color: #26708d;
+
+    box-shadow:
+        0 0 0 3px rgba(38, 112, 141, 0.12);
+}
+
+
+/* =========================================================
+   DISABLED MACHINE
+   ========================================================= */
+
+.machine-input:disabled {
+    background: #f1f4f5;
+    color: #93a0a6;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   PLACEHOLDERS
+   ========================================================= */
+
+.name-input::placeholder,
+.notes-input::placeholder {
+    color: #93a0a6;
+}
+
+
+/* =========================================================
+   TECHNICIANS
+   ========================================================= */
+
+.technicians {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Individual technician */
+
+.technician-option {
+    min-height: 43px;
+
+    padding: 9px 11px;
+
+    margin-bottom: 7px;
+
+    background: #f7f9fa;
+
+    border: 1px solid #dfe6e9;
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+/* Checkbox */
+
+.technician-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+
+    margin: 0;
+
+    accent-color: #26708d;
+
+    cursor: pointer;
+}
+
+
+/* Technician name */
+
+.technician-option label {
+    color: #33454d;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    flex: 1;
+}
+
+
+/* =========================================================
+   DATE + TIME
+   ========================================================= */
+
+.date,
+.time {
+    width: 100%;
+}
+
+
+/* Put Date and Time next to each other */
+
+.date-time-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 14px auto 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.save,
+.cancel {
+    height: 46px;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+/* Save */
+
+.save {
+    border: none;
+
+    background: #183847;
+    color: #ffffff;
+}
+
+.save:hover {
+    background: #26708d;
+}
+
+
+/* Cancel */
+
+.cancel {
+    border: 1px solid #d7e0e4;
+
+    background: #ffffff;
+    color: #66757d;
+}
+
+.cancel:hover {
+    background: #f1f4f5;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    .job-form {
+        padding: 12px 12px 20px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .footer {
+        margin-top: 12px;
+    }
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 700px) {
+
+    .job-form {
+        padding-top: 30px;
+    }
+}
