@@ -1,6 +1,15 @@
 const addJobBtn = document.querySelector(".addJobBtn");
 const jobResults = document.querySelector(".job-results");
 const searchInput = document.querySelector(".search");
+const backBtn = document.querySelector(".arrow-left");
+
+const technicians = {
+    1: "Andre",
+    2: "Callie",
+    3: "Dian",
+    4: "Jaco",
+    5: "Wiseman"
+};
 
 
 // Create Job button
@@ -8,6 +17,10 @@ addJobBtn.addEventListener("click", function () {
     window.location.href = "manageJobs-form.html";
 });
 
+//Back button
+backBtn.addEventListener("click", function () {
+    window.location.href = "../main/main.html";
+});
 
 // Load jobs from Supabase
 async function loadJobs() {
@@ -26,6 +39,30 @@ async function loadJobs() {
         console.error("Error loading jobs:", error);
         return;
     }
+
+
+    const { data: assignments, error: technicianError } = await db
+        .from("job_technicians")
+        .select("job_id, technician_id");
+
+    if (technicianError) {
+        console.error("Error loading technicians:", technicianError);
+        return;
+    }
+
+
+    jobs.forEach(function (job) {
+
+        const jobAssignments = assignments.filter(function (assignment) {
+            return assignment.job_id === job.id;
+        });
+
+        job.technicians = jobAssignments.map(function (assignment) {
+            return technicians[assignment.technician_id];
+        });
+
+    });
+
 
     displayJobs(jobs);
 }
@@ -58,13 +95,19 @@ function displayJobs(jobsToDisplay) {
 
         jobCard.className = "card";
 
+        jobCard.addEventListener("click", function () {
+            window.location.href = `manageJobs-details.html?id=${job.id}`;
+        });
+
 
         // Job Name
         const jobName = document.createElement("div");
 
         jobName.className = "job-title";
 
-        jobName.textContent = job.name;
+        jobName.textContent = job.technicians.length > 0
+            ? job.technicians.join(", ")
+            : "Unassigned";
 
 
         // Customer
@@ -126,6 +169,37 @@ function displayJobs(jobsToDisplay) {
         jobDateTime.textContent =
             `Date & Time: ${formattedDate} · ${formattedTime}`;
 
+        //Delete Button
+        const deleteBtn = document.createElement("button");
+
+        deleteBtn.className = "delete-job";
+        deleteBtn.textContent = "Delete";
+
+        deleteBtn.addEventListener("click", async function (event) {
+
+            event.stopPropagation();
+
+            const confirmed = confirm(
+                "Are you sure you want to delete this job?"
+            );
+
+            if (!confirmed) {
+                return;
+            }
+
+            const { error } = await db
+                .from("jobs")
+                .delete()
+                .eq("id", job.id);
+
+            if (error) {
+                console.error("Error deleting job:", error);
+                return;
+            }
+
+            loadJobs();
+        });
+
 
         // Add everything to the card
         jobCard.appendChild(jobName);
@@ -133,6 +207,7 @@ function displayJobs(jobsToDisplay) {
         jobCard.appendChild(jobMachine);
         jobCard.appendChild(jobService);
         jobCard.appendChild(jobDateTime);
+        jobCard.appendChild(deleteBtn);
 
 
         // Add card to page

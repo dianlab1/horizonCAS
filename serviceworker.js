@@ -1,4 +1,4 @@
-const CACHE_NAME = "horizon-app-v0.14";
+const CACHE_NAME = "horizon-app-v0.15";
 
 const APP_SHELL = [
     "./",
@@ -57,6 +57,9 @@ const APP_SHELL = [
     "./manageJobs-form.html",
     "./manageJobs-form.css",
     "./manageJobs-form.js",
+    "./manageJobs-details.js",
+    "./manageJobs-details.html",
+    "./manageJobs-details.css",
 
     //Main Pages
     "./style.css",

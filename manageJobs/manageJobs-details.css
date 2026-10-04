@@ -1,0 +1,304 @@
+/* =========================
+   MANAGE JOBS DETAILS
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    background: #f4f7f8;
+    color: #172126;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+/* Main page container */
+
+.job-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 16px 110px;
+}
+
+/* Main form card */
+
+.job-form .card {
+    background: #ffffff;
+    border: 1px solid #d7e0e4;
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    box-shadow: 0 3px 12px rgba(16, 43, 55, 0.08);
+}
+
+/* =========================
+   FORM FIELDS
+   ========================= */
+
+.name,
+.customer,
+.machine,
+.service,
+.date,
+.time,
+.notes,
+.technicians {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+/* Field labels */
+
+.text {
+    color: #172126;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* Text inputs, selects and date/time inputs */
+
+.name-input,
+.customer-input,
+.machine-input,
+.service-input,
+.date-input,
+.time-input,
+.notes-input {
+    width: 100%;
+    border: 1px solid #d7e0e4;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #172126;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+/* Regular inputs */
+
+.name-input,
+.customer-input,
+.machine-input,
+.service-input,
+.date-input,
+.time-input {
+    height: 46px;
+    padding: 0 14px;
+}
+
+/* Textarea */
+
+.notes-input {
+    min-height: 110px;
+    padding: 12px 14px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* Placeholder */
+
+.name-input::placeholder,
+.notes-input::placeholder {
+    color: #93a0a6;
+}
+
+/* Focus state */
+
+.name-input:focus,
+.customer-input:focus,
+.machine-input:focus,
+.service-input:focus,
+.date-input:focus,
+.time-input:focus,
+.notes-input:focus {
+    border-color: #26708d;
+    box-shadow: 0 0 0 3px rgba(38, 112, 141, 0.10);
+}
+
+/* Disabled machine select */
+
+.machine-input:disabled {
+    background: #f1f4f5;
+    color: #93a0a6;
+    cursor: not-allowed;
+}
+
+/* =========================
+   TECHNICIANS
+   ========================= */
+
+.technicians {
+    gap: 10px;
+}
+
+.technician-option {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: #f7f9fa;
+    border: 1px solid #d7e0e4;
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.technician-option:hover {
+    background: #eef4f6;
+    border-color: #26708d;
+}
+
+.technician-option input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    accent-color: #26708d;
+    cursor: pointer;
+}
+
+.technician-option label {
+    color: #172126;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* =========================
+   DATE + TIME
+   ========================= */
+
+.date-time-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* =========================
+   FOOTER BUTTONS
+   ========================= */
+
+.footer {
+    width: 100%;
+    max-width: 600px;
+    margin: 14px auto 0;
+
+    display: flex;
+    gap: 10px;
+}
+
+/* Save */
+
+.save {
+    flex: 1;
+    height: 48px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #183847;
+    color: #ffffff;
+
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 8px rgba(16, 43, 55, 0.12);
+
+    transition:
+        background 0.15s ease,
+        transform 0.1s ease;
+}
+
+.save:hover {
+    background: #26708d;
+}
+
+.save:active {
+    transform: translateY(1px);
+}
+
+/* Cancel */
+
+.cancel {
+    flex: 1;
+    height: 48px;
+
+    border: 1px solid #d7e0e4;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #53636b;
+
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease;
+}
+
+.cancel:hover {
+    background: #f1f4f5;
+    border-color: #b9c7cd;
+    color: #183847;
+}
+
+.cancel:active {
+    transform: translateY(1px);
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 480px) {
+
+    .job-form {
+        padding: 14px 12px 100px;
+    }
+
+    .job-form .card {
+        padding: 15px;
+        gap: 16px;
+    }
+
+    .date-time-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .footer {
+        padding: 0 12px;
+    }
+}
