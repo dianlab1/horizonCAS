@@ -32,6 +32,7 @@ async function loadJobs() {
             customers(name),
             machines(name)
         `)
+        .neq("status", "COMPLETED")
         .order("job_date")
         .order("job_time");
 
